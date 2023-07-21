@@ -2,9 +2,9 @@
 
 namespace GildedTros.App.Strategies
 {
-    public class ItemContext
+    public static class ItemContext
     {
-        public IItemStrategy DefineItemStrategy(Item item)
+        public static IItemStrategy DefineItemStrategy(Item item)
         {
             switch (item.Name)
             {
@@ -12,7 +12,8 @@ namespace GildedTros.App.Strategies
                     return new GoodWineItemStrategy();
                 case ItemNameConstants.BDawgKeyCHain:
                     return new BDawgKeyChainItemStrategy();
-                case ItemNameConstants.BackStagePasses:
+                case ItemNameConstants.BackStagePassesRefactor:
+                case ItemNameConstants.BackStagePassesHAXX:
                     return new BackStagePassesItemStrategy();
                 default:
                     {
@@ -20,7 +21,6 @@ namespace GildedTros.App.Strategies
                             return new SmellyItemStrategy();
                         return new RegularItemStrategy();
                     }
-
             }
         }
     }

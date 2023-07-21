@@ -9,7 +9,8 @@ namespace GildedTros.App.Strategies
         {
             item.SellIn--;
             item.Quality++;
-            item.Quality = item.SellIn < SellInConstants.SellInDeadline ? item.Quality++ : item.Quality;
+            if (item.SellIn < SellInConstants.SellInDeadline)
+                item.Quality++;
             item.Quality = Math.Min(item.Quality, QualityConstants.MaxQuality);
         }
     }
