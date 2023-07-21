@@ -1,8 +1,10 @@
-﻿using GildedTros.App.Constants;
+﻿using GildedTros.App;
+using GildedTros.App.Constants;
 using System.Collections.Generic;
 using Xunit;
+using GildedTrosClass = GildedTros.App.GildedTros;
 
-namespace GildedTros.App
+namespace GildedTros.Tests
 {
     public class GildedTrosTest
     {
@@ -16,8 +18,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem("RegularItem", sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(--quality, items[0].Quality);
@@ -33,13 +34,12 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem("RegularItem", sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
-            Assert.Equal(quality-2, items[0].Quality);
+            Assert.Equal(quality - 2, items[0].Quality);
             Assert.Equal(--sellIn, items[0].SellIn);
-        }       
+        }
 
         [Fact]
         public void RegularItem_QualityIsZero_QualityRemainsZeroAndSellInDecreased()
@@ -50,8 +50,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem("RegularItem", sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -70,8 +69,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.GoodWine, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(++quality, items[0].Quality);
@@ -87,8 +85,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.GoodWine, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -104,8 +101,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.GoodWine, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -121,11 +117,10 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.GoodWine, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
-            Assert.Equal(quality+2, items[0].Quality);
+            Assert.Equal(quality + 2, items[0].Quality);
             Assert.Equal(--sellIn, items[0].SellIn);
         }
         #endregion
@@ -140,8 +135,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BDawgKeyCHain, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -159,8 +153,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(++quality, items[0].Quality);
@@ -176,8 +169,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -193,11 +185,10 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
-            Assert.Equal(quality+2, items[0].Quality);
+            Assert.Equal(quality + 2, items[0].Quality);
             Assert.Equal(--sellIn, items[0].SellIn);
         }
 
@@ -210,8 +201,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -227,8 +217,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality + 3, items[0].Quality);
@@ -244,8 +233,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(quality, items[0].Quality);
@@ -261,8 +249,7 @@ namespace GildedTros.App
             IList<Item> items = new List<Item> { CreateItem(ItemNameConstants.BackStagePassesHAXX, sellIn, quality) };
 
             //Act
-            GildedTros app = new GildedTros(items);
-            app.UpdateQuality();
+            RunApp(items);
 
             //Assert
             Assert.Equal(0, items[0].Quality);
@@ -272,7 +259,13 @@ namespace GildedTros.App
         private Item CreateItem(string name, int sellIn, int quality)
         {
             return new Item { Name = name, SellIn = sellIn, Quality = quality };
-        }      
+        }
+
+        private void RunApp(IList<Item> items)
+        {
+            GildedTrosClass app = new GildedTrosClass(items);
+            app.UpdateQuality();
+        }
 
 
     }
