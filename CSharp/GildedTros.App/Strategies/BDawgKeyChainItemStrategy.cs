@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace GildedTros.App.Services
+﻿namespace GildedTros.App.Strategies
 {
     public class BDawgKeyChainItemStrategy : IItemStrategy
     {
         public void UpdateQuality(Item item)
         {
-            throw new NotImplementedException();
+            //BdwagChain never increases / decreases in quality and does not have sellin deadline.
         }
     }
 }

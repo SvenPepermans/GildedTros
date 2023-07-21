@@ -1,6 +1,6 @@
 ﻿using GildedTros.App.Constants;
 
-namespace GildedTros.App.Services
+namespace GildedTros.App.Strategies
 {
     public class ItemContext
     {
@@ -15,7 +15,12 @@ namespace GildedTros.App.Services
                 case ItemNameConstants.BackStagePasses:
                     return new BackStagePassesItemStrategy();
                 default:
-                    return new RegularItemStrategy();
+                    {
+                        if (ItemNameConstants.SmellyItems.Contains(item.Name))
+                            return new SmellyItemStrategy();
+                        return new RegularItemStrategy();
+                    }
+
             }
         }
     }

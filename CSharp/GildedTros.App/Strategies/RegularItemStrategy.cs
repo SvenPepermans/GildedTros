@@ -1,7 +1,6 @@
 ﻿using GildedTros.App.Constants;
-using System;
 
-namespace GildedTros.App.Services
+namespace GildedTros.App.Strategies
 {
     public class RegularItemStrategy : IItemStrategy
     {
@@ -14,7 +13,7 @@ namespace GildedTros.App.Services
                 item.Quality--;
 
             item.Quality = item.Quality < QualityConstants.MinQuality ? QualityConstants.MinQuality : item.Quality;
-          
+
         }
     }
 }

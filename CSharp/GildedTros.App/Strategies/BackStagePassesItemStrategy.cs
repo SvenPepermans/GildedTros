@@ -1,4 +1,4 @@
-﻿namespace GildedTros.App.Services
+﻿namespace GildedTros.App.Strategies
 {
     public class BackStagePassesItemStrategy : IItemStrategy
     {
